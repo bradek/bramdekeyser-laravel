@@ -13,7 +13,7 @@
     <div class="container">
         <h1>Contactformulier</h1>
 
-        <!--Hieronder zie je de formulier die het contactformulier indient.
+        <!--Hieronder zie je de formulier die het contactformulier indient.  
         Met @csrf voer ik csrf-protectie uit.-->
         <form action="{{ route('contact.indienen') }}" method="POST">
             @csrf
