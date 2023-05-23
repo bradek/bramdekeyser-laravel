@@ -20,7 +20,10 @@ class LoginController extends Controller
         Bij het login formulier vraag ik echter alleen naar de email en passwoord.*/
         $credentials = $request->only('email', 'password');
 
-        if (Auth::attempt($credentials)) {
+        /*Het volgende vindt plaats wanneer de authenticatie geslaagd is.
+        Er wordt ook nagegaan of de checkbox is aangeduid om de gebruiker te onthouden.
+        Als dit het geval is, wordt er een cookie geïnstalleerd die de gebruiker ingelogd houdt.*/
+        if (Auth::attempt($credentials, $request->has('remember'))) {
             /*De redirect vindt slechts plaats wanneer de authenticatie is geslaagd.
             Als de redirect niet plaatsvindt, is er een probleem met de authenticatie.
             Deze redirect leidt naar de home-pagina.*/

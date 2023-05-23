@@ -49,6 +49,12 @@
             <input type="password" name="password" id="password" required>
         </div><br>
 
+        <!--Bij deze checkbox kan je aanduiden of je als gebruiker onthouden wil worden of niet.-->
+        <div>
+            <input type="checkbox" name="remember" id="remember">
+            <label for="remember">Onthoud mij</label>
+        </div><br>
+
         <div>
             <button type="submit">Inloggen</button>
         </div>
