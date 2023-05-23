@@ -1,0 +1,58 @@
+body{
+    background-color: lightblue;
+}
+.admin-aanzetten {
+    background-color: red;
+    color: white;
+    margin: 5px;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+.admin-uitzetten {
+    background-color: green;
+    color: white;
+    margin: 5px;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+/* main navigation section */
+.main-header__brand img{
+    width:100px;
+  }
+  .main-header__brand{
+    display:inline-block;
+    vertical-align:middle;
+  }
+  .main-navigation{
+    display:inline-block;
+    vertical-align:middle;
+    margin-left:50px;
+  }
+  .main-navigation__item{
+    display:inline-block;
+  }
+  .main-navigation__item a{
+    font-size:18px;
+    font-family:cursive;
+    font-weight:500;
+    text-decoration:none;
+    color:#034;
+    cursor:pointer;
+    margin-left:40px;
+  }
+  .main-navigation__item a:hover{
+    color:orangered;
+  }
+  header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:white;
+    box-shadow:0px 3px 16px rgba(0 0 0 / 10%);
+    z-index:1;
+    
+  }
+  /* end of the main navigation section */
