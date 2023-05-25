@@ -14,6 +14,12 @@ class ProfielController extends Controller
         /*Gegevens van de user worden opgevraagd.*/
         $user = Auth::user();
 
+        if (!empty($user->avatar)) {
+            $user->avatar = asset('storage/avatars/' . $user->avatar);
+        }
+
+        //dd($user->avatar);
+
         /*De view, zijnde de profielpagina, wordt in onderstaande regel gereturnd.
         Op deze manier wordt de pagina zichtbaar.
         De compact('user') maakt een associatieve array aan met 'user' als variabele en de waarde van de variabele

@@ -12,6 +12,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfielController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\WachtwoordVergetenController;
+use App\Http\Controllers\LaatsteNieuwsController;
+use App\Http\Controllers\FAQController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,8 +64,9 @@ Ik snap nog altijd niet helemaal wat het probleem hier was, maar met de andere s
 
 /*Dit zijn de uiteindelijke twee routes.
 De get route wordt gebruikt om het formulier weer te geven, waar de post dient om deze te verwerken.*/
-Route::get('/registreer', [RegistratieController::class, 'showRegistratieFormulier'])->name('registreer');
-Route::post('/registreer', [RegistratieController::class, 'registreer']);
+Route::get('/registreer', [RegistratieController::class, 'showRegistratieFormulier'])->name('showRegistratieFormulier');
+Route::post('/registreer', [RegistratieController::class, 'registreer'])->name('registreer');
+
 
 /*Hieronder staan de routes voor het inlogsysteem.
 De eerste route wordt gebruikt om het formulier te tonen, de tweede route voor de uitvgoering hiervan
@@ -120,3 +123,9 @@ Route::get('/auth/passwords/email', [WachtwoordVergetenController::class, 'toonR
 Route::post('/auth/passwords/email', [WachtwoordVergetenController::class, 'sendResetLinkEmail'])->name('password.email');
 Route::get('/auth/passwords/reset/{token}', [WachtwoordVergetenController::class, 'toonResetFormulier'])->name('password.reset');
 Route::post('/auth/passwords/reset/{token}', [WachtwoordVergetenController::class, 'resetPassword'])->name('password.update');
+
+Route::post('/avatars', 'RegistratieController@uploadAvatar')->name('upload.avatar');
+
+Route::get('/laatstenieuws', [LaatsteNieuwsController::class, 'toonLaatsteNieuws'])->name('laatstenieuws');
+
+Route::get('/faq', [FAQController::class, 'toonFaq'])->name('faq');

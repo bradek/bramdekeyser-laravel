@@ -19,6 +19,10 @@ class UserSeeder extends Seeder
                 'email' => 'admin@ehb.be',
                 'password' => Hash::make('Password!321'),
                 'admin' => true,
+                'about_me' => 'Ik ben een admin.',
+                'birthdate' => '1985-01-01',
+                'avatar' => 'https://img.freepik.com/icones-gratuites/guider_318-627028.jpg',
+
             ],
             /*Hierachter kan ik meer gebruikers aanmaken als ik dat wil.*/
         ];

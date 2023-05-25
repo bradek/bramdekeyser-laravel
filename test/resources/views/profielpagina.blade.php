@@ -12,7 +12,12 @@
   <h1>Profiel</h1>
   <br>
   <h2>Naam: {{$user->name}}</h2>
+  <h2>Avatar:</h2><br>
+  <img src="{{ asset('avatars/' . $user->avatar) }}" alt="Gebruiker's avatar">
   <h2>Email: {{$user->email}}</h2>
+  <h2>Geboortedatum {{$user->birthdate}}</h2>
+  <h2>Over mij:</h2>
+  <p>{{$user->about_me}}</p>
 
   <!--De wijzigingen die de gebruiker kan maken zijn van toepassing op de eigen gebruiker.
   Ik maak gebruik van de profielpagina.update route, die gebruik maakt van de ProfielController.

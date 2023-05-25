@@ -17,7 +17,7 @@ Daar komen dus ook de complexe class-namen uit voort die ik zelf nooit verzonnen
           <li class="main-navigation__item">
           <a href="/boeken">Boeken</a>
             <li class="main-navigation__item">
-          <a href="{{ route('registreer') }}">Registreer</a>
+          <a href="{{ route('showRegistratieFormulier') }}">Registreer</a>
               <li class="main-navigation__item">
           <a href="{{ route('login') }}">Login</a>
           <!--Als de ingelogde gebruiker geen admin is, zal deze link niet worden weergegeve.
@@ -30,6 +30,10 @@ Daar komen dus ook de complexe class-namen uit voort die ik zelf nooit verzonnen
           <a href="{{ route('profielpagina') }}">Profielpagina</a>
           <li class="main-navigation__item">
           <a href="{{ route('contact') }}">Contact</a>
+          <li class="main-navigation__item">
+          <a href="{{ route('faq') }}">FAQ</a>
+          <li class="main-navigation__item">
+          <a href="{{ route('laatstenieuws') }}">Laatste Nieuws</a>
         </li>
       </ul>
     </nav>

@@ -22,6 +22,9 @@ class User extends Authenticatable
         'email',
         'password',
         'admin',
+        'about_me',
+        'birthdate',
+        'avatar',
     ];
 
     /*Dit is een array met protected attributes.
@@ -47,6 +50,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'birthdate' => 'date', //Birthdate wordt gecast naar date.
     ];
 
     /*Deze methode gaat na of een gebruiker admin is.*/ 

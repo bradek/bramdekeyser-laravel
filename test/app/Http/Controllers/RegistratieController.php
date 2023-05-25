@@ -6,6 +6,20 @@ use Illuminate\Http\Request;
 
 class RegistratieController extends Controller
 {
+    /*public function uploadAvatar(Request $request)
+    {
+        $file = $request->file('avatar');
+
+        $avatar = new Avatar();
+        $avatar->name = $file->getClientOriginalName();
+        $avatar->image = file_get_contents($file->getRealPath());
+        $avatar->save();
+
+        // Voer hier eventuele andere logica uit na het uploaden van de avatar
+
+        return redirect()->back()->with('success', 'Avatar uploaded successfully.');
+    }*/
+
     public function showRegistratieFormulier()
     {
         /*Deze dd heb ik toegevoegd omdat de redirect niet werkt.
@@ -26,6 +40,9 @@ class RegistratieController extends Controller
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|min:8',
+            'about_me' => 'required|max:150',
+            'birthdate' => 'required|date',
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
         /*Ik maak een nieuwe gebruiker aan.
@@ -34,6 +51,17 @@ class RegistratieController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->password = bcrypt($request->input('password'));
+        $user->about_me = $request->input('about_me');
+        $user->birthdate = $request->input('birthdate');
+
+        if ($request->hasFile('avatar')) {
+            $avatar = $request->file('avatar');
+            $avatarName = time() . '.' . $avatar->getClientOriginalExtension();
+            $avatar->storeAs('avatars', $avatarName, 'public');
+
+            $user->avatar = $avatarName; // Voeg deze regel toe
+        }
+
         $user->admin = false; //Standaard staat admin op false.
         $user->save();
 
