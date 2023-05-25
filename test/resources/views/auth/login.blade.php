@@ -64,7 +64,8 @@
     <form method="POST" action="/auth/uitloggen">
     <!--Ook hier gebruik ik csrf-beveiliging.-->
     @csrf
-    <button type="submit">Uitloggen</button>
+    <button type="submit">Uitloggen</button><br>
+    <a href="{{ route('password.request') }}">Wachtwoord vergeten?</a>
 </form>
 </body>
 </html>

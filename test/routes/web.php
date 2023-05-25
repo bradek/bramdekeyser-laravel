@@ -11,6 +11,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfielController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\WachtwoordVergetenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -100,5 +101,22 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/profielpagina', [ProfielController::class, 'update'])->name('profielpagina.update');
 });
 
+/*Er zijn twee routes aangemaakt die gebruik maken van de ContactController.
+De route met de naam 'contact' voert de methode 'toonContactFormulier' uit,
+die vanzelfsprekend de route opent naar het formulier.
+contact.indienen verwijst naar de methode indienenContactFormulier(),
+die voor de verwerking zorgt.*/
 Route::get('/contact', [ContactController::class, 'toonContactFormulier'])->name('contact');
 Route::post('/contact', [ContactController::class, 'indienenContactFormulier'])->name('contact.indienen');
+
+/*Hieronder staan twee routes aangaande de functionaliteit waarin je je wachtwoord kan resetten.
+De vier methoden waarnaar worden verwijst, bevinden zich in de WachtwoordvergetenController.
+Twee hiervan zijn GET en dienen om een view te tonen.
+Elke GET krijgt nog een POST die verwijst naar de uitvoeringsmethoden die worden opgestart na de indieningen van de form.
+De twee routes die betrekking hebben tot het resetformulier (de route om hem te tonen en de route om hem te verwerken),
+maken gebruik van een request token.
+In eerdere definities wordt deze van 60 willekeurige tekens voorzien.*/
+Route::get('/auth/passwords/email', [WachtwoordVergetenController::class, 'toonRequestFormulier'])->name('password.request');
+Route::post('/auth/passwords/email', [WachtwoordVergetenController::class, 'sendResetLinkEmail'])->name('password.email');
+Route::get('/auth/passwords/reset/{token}', [WachtwoordVergetenController::class, 'toonResetFormulier'])->name('password.reset');
+Route::post('/auth/passwords/reset/{token}', [WachtwoordVergetenController::class, 'resetPassword'])->name('password.update');
