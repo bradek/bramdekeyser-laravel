@@ -56,3 +56,61 @@ body{
     
   }
   /* end of the main navigation section */
+
+  .footergeheel {
+    width: 100%;
+  }
+  .linkerfooter {
+    width: 100%;
+  }
+  .linkerfooter img {
+    max-width: 30%;
+    margin-bottom: 20px;
+  }
+  .linkerfooter p {
+    font: 500 18.52px/28px "Poppins", sans-serif;
+    color: #fff;
+  }
+  .rechterfooter {
+    width: 100%;
+  }
+  .rechterfooter {
+    font: 600 22.52px/28px "Poppins", sans-serif;
+    color: #fff;
+  }
+  .rechterfooter p span {
+    display: inline-block;
+    width: 100%;
+    font: 500 18.52px/28px "Poppins", sans-serif;
+    color: #fff;
+    padding-top: 10px;
+  }
+  .rechterfooter p,
+  .rechterfooter p a {
+    font: 500 18.52px/28px "Poppins", sans-serif;
+    color: #f2c426;
+  }
+  .footertop {
+    width: 100%;
+    background-color: rgb(118, 180, 201);
+    padding: 60px 0;
+  }
+  .footeronderkant {
+    width: 100%;
+    background: #000;
+    padding: 20px 0;
+  }
+  .footeronderkant p {
+    font: 500 15.52px/28px "Poppins", sans-serif;
+    color: #fff;
+  }
+  .footeronderkant p a {
+    color: #f2c426;
+  }
+  
+  .admin-navigation{
+    background-color: rgb(106, 202, 178);
+  }
+  .adminfooter{
+    background-color:rgb(64, 134, 117);
+  }

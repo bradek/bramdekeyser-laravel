@@ -1,25 +1,15 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.basis')
 
-        <title>Home</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/app.css">
-
-    
-
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        @include('partials.header')
+    @section('content')
        <h1>Home</h1>
-    </body>
-</html>
+       <br><br>
+       <!--Als de sessie 'succes' is opgestart, kan deze worden aangeroepen.
+        Deze is van toepassing wanneer een gebruiker is aangemaakt.
+        In dit geval wordt de melding aangeroepen en geplaatst in een label.
+        Deze label heb ik van standaard bootstrap voorzien.-->
+            @if(Session::has('succes'))
+                <label class="alert alert-success text-right" id="success-alert">
+                    {{ Session::get('succes') }}
+                </label><br>
+            @endif
+    @endsection

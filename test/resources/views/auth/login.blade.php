@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/app.css">
-    <title>Login</title>
-</head>
-<body>
-@include('partials.header')
+@extends('layouts.basis')
+
+    @section('content')
     <h1>Login</h1>
 
     <!--Er wordt nagegaan of er fouten zijn opgetreden bij eerdere acties.
@@ -67,5 +59,4 @@
     <button type="submit">Uitloggen</button><br>
     <a href="{{ route('password.request') }}">Wachtwoord vergeten?</a>
 </form>
-</body>
-</html>
+@endsection

@@ -1,3 +1,6 @@
+@extends('layouts.basis')
+
+@section('content')
     <div class="card">
         <!--Afhankelijk van de taal van de Laravel zal 'Reset Password' vertaalt worden.-->
         <div class="card-header">{{ __('Reset Password') }}</div>
@@ -67,3 +70,4 @@
             </form>
         </div>
     </div>
+    @endsection

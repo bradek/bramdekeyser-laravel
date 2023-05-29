@@ -14,6 +14,10 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\WachtwoordVergetenController;
 use App\Http\Controllers\LaatsteNieuwsController;
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\NieuwsController;
+
+use App\Models\Nieuws;
+use App\Models\Categorie;
 
 /*
 |--------------------------------------------------------------------------
@@ -118,14 +122,19 @@ Twee hiervan zijn GET en dienen om een view te tonen.
 Elke GET krijgt nog een POST die verwijst naar de uitvoeringsmethoden die worden opgestart na de indieningen van de form.
 De twee routes die betrekking hebben tot het resetformulier (de route om hem te tonen en de route om hem te verwerken),
 maken gebruik van een request token.
-In eerdere definities wordt deze van 60 willekeurige tekens voorzien.*/
-Route::get('/auth/passwords/email', [WachtwoordVergetenController::class, 'toonRequestFormulier'])->name('password.request');
-Route::post('/auth/passwords/email', [WachtwoordVergetenController::class, 'sendResetLinkEmail'])->name('password.email');
-Route::get('/auth/passwords/reset/{token}', [WachtwoordVergetenController::class, 'toonResetFormulier'])->name('password.reset');
-Route::post('/auth/passwords/reset/{token}', [WachtwoordVergetenController::class, 'resetPassword'])->name('password.update');
+In eerdere definities wordt deze van 60 willekeurige tekens voorzien.
+Ik heb deze routes in een group-route gezet.*/
+Route::group(['prefix' => 'auth/passwords'], function () {
+    Route::get('/email', [WachtwoordVergetenController::class, 'toonRequestFormulier'])->name('password.request');
+    Route::post('/email', [WachtwoordVergetenController::class, 'sendResetLinkEmail'])->name('password.email');
+    Route::get('/reset/{token}', [WachtwoordVergetenController::class, 'toonResetFormulier'])->name('password.reset');
+    Route::post('/reset/{token}', [WachtwoordVergetenController::class, 'resetPassword'])->name('password.update');
+});
 
 Route::post('/avatars', 'RegistratieController@uploadAvatar')->name('upload.avatar');
 
-Route::get('/laatstenieuws', [LaatsteNieuwsController::class, 'toonLaatsteNieuws'])->name('laatstenieuws');
+//Route::get('/laatstenieuws', [LaatsteNieuwsController::class, 'toonLaatsteNieuws'])->name('laatstenieuws');
 
 Route::get('/faq', [FAQController::class, 'toonFaq'])->name('faq');
+
+Route::get('/laatstenieuws', [NieuwsController::class, 'index'])->name('laatstenieuws');

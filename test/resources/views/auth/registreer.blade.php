@@ -1,16 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/app.css">
-    <title>Document</title>
-</head>
-<body>
-@include('partials.header')
+@extends('layouts.basis')
+
+@section('content')
+<!--<br><br>
+    @if(Session::has('succes'))
+        <label class="alert alert-success text-right" id="success-alert">
+            {{ Session::get('succes') }}
+        </label><br>
+    @endif
+    <br>-->
+
     <!--Ik gebruik de route 'registreer' als action in onderstaand formulier.-->
     <form action="{{ route('registreer') }}" method="post" enctype="multipart/form-data">
+
+    <!--De standaard wijze waarop de errors staan beschreven bij het aanroepen van $errors is niet esthetisch
+    In de if-statement geldt indien er errors zijn het volgende:
+    Voor elke error, wordt een paragraaf gemaakt waarin de error wordt weergegeven.-->
+    @if($errors)
+        @foreach($errors->all() as $errors)
+            <p>
+                {{$errors}}
+            </p>
+        @endforeach
+    @endif
 
     <!--@csrf staat voor Cross-Site Request Forgery.
     Er wordt een csrf token gecreëerd die het risico op csrf-aanvallen vermindert.
@@ -60,5 +71,4 @@
         <button type="submit">Registreren</button>
     </div>
 </form>
-</body>
-</html>
+@endsection

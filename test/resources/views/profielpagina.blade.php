@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/app.css">
-    <title>Document</title>
-</head>
-<body>
-@include('partials.header')
+@extends('layouts.basis')
+
+    @section('content')
   <h1>Profiel</h1>
   <br>
   <h2>Naam: {{$user->name}}</h2>
@@ -55,5 +47,4 @@
 
     <button type="submit">Opslaan</button>
   </form>
-</body>
-</html>
+@endsection

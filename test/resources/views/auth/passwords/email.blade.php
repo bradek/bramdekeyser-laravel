@@ -1,3 +1,6 @@
+@extends('layouts.basis')
+
+    @section('content')
 <!--Ik verwijs in de POST naar de route password.email.
 Na het indienen van dit formulier wordt de resetlink gestuurd naar het emailadres van de gebruiker.-->
 <form method="POST" action="{{ route('password.email') }}">
@@ -9,3 +12,4 @@ Na het indienen van dit formulier wordt de resetlink gestuurd naar het emailadre
     </div>
     <button type="submit">Wachtwoord reset link versturen</button>
 </form>
+@endsection

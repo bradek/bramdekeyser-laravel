@@ -53,6 +53,9 @@ class ProfielController extends Controller
         $user->password = Hash::make($request->password);
         $user->save();
 
+        /*De gebruiker wordt geredirect naar de index pagina.
+        Een bericht wordt meegegeven die de naam 'succes' draagt.
+        Deze kan ik aanroepen in de code van de view.*/
         return redirect()->route('index')->with('success', 'Profielgegevens zijn bijgewerkt.');
     }
 }

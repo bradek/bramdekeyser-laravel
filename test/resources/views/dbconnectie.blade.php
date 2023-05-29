@@ -1,12 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>phpmyadmin-laravel-connectie</title>
-</head>
-<body>
+@extends('layouts.basis')
+
+    @section('content')
 
      <!--Deze pagina was eigenlijk een test-pagina die naging of de connectie met de database correct verliep.
     Dit is al uitgebreid bevestigt geweest bij o.a. de administratie, registratie en inlog-systemen.
@@ -30,5 +24,4 @@
         }
         ?>
     </div>
-</body>
-</html>
+@endsection

@@ -66,6 +66,8 @@ class RegistratieController extends Controller
         $user->save();
 
         // Redirect naar een bedankpagina of een andere route
-        return redirect()->route('index');
+        return redirect()->route('index')->with("succes","Uw gebruikersaccount werd aangemaakt.");
+
+        //return back()->with("succes", "Uw gebruikersaccount werd aangemaakt.");
     }
 }

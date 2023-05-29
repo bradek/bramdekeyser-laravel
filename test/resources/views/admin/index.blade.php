@@ -1,15 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="/app.css">
-    <title>Admin Pagina</title>
-</head>
-<body>
-    @include('partials.header')
+@extends('layouts.adminlayout')
+
+    @section('content')
     <h1>Admin Pagina</h1>
 
     <!-- Toon een lijst van gebruikers -->
@@ -44,5 +35,4 @@
             </li>
         @endforeach
     </ul>
-</body>
-</html>
+@endsection
