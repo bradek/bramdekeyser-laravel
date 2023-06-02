@@ -3,6 +3,9 @@
     @section('content')
     <h1>Admin Pagina</h1>
 
+    <br>
+<a href="{{ route('admin.nieuwsbeheer.index') }}">Nieuwsbeheer</a>
+    <br>
     <!-- Toon een lijst van gebruikers -->
     <ul>
         @foreach ($users as $user)

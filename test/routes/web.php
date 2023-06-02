@@ -15,6 +15,7 @@ use App\Http\Controllers\WachtwoordVergetenController;
 use App\Http\Controllers\LaatsteNieuwsController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\NieuwsController;
+use App\Http\Controllers\NieuwsbeheerController;
 
 use App\Models\Nieuws;
 use App\Models\Categorie;
@@ -138,3 +139,11 @@ Route::post('/avatars', 'RegistratieController@uploadAvatar')->name('upload.avat
 Route::get('/faq', [FAQController::class, 'toonFaq'])->name('faq');
 
 Route::get('/laatstenieuws', [NieuwsController::class, 'index'])->name('laatstenieuws');
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('nieuwsbeheer', 'NieuwsbeheerController');
+});
+
+Route::get('/admin/nieuwsbeheer', [NieuwsbeheerController::class, 'index'])->name('admin.nieuwsbeheer.index');
+Route::get('/admin/nieuwsbeheer/{nieuwsitem}/edit', [NieuwsbeheerController::class, 'edit'])->name('admin.nieuwsbeheer.edit');
+Route::delete('/admin/nieuwsbeheer/{nieuwsitem}', [NieuwsbeheerController::class, 'destroy'])->name('admin.nieuwsbeheer.destroy');
