@@ -4,7 +4,9 @@
     <h1>Admin Pagina</h1>
 
     <br>
-<a href="{{ route('admin.nieuwsbeheer.index') }}">Nieuwsbeheer</a>
+<a href="{{ route('admin.nieuwsbeheer.index') }}">Nieuwsbeheer</a> 
+<a href="{{ route('admin.faqbeheer') }}">FAQ Beheer</a>
+<a href="{{ route('admin.categoriebeheer') }}">Categoriebeheer</a>
     <br>
     <!-- Toon een lijst van gebruikers -->
     <ul>

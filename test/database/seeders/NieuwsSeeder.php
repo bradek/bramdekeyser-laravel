@@ -19,7 +19,7 @@ class NieuwsSeeder extends Seeder
         Nieuws::create([
             'title' => 'Heian - De Bedreiging van Oberon',
             'category_id' => 1,
-            'cover_image' => 'https://wscovers1.tlsecure.com/cover?action=img&source=68599&ean=9789464504989&size=l',
+            'cover_image' => 'app/',
             'description' => 'Eerste boek in de fantasy serie van Heian.',
             'publication_date' => now(),
         ]);

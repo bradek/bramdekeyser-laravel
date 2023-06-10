@@ -6,7 +6,7 @@ Deze navigatiebalk leek me simpel en netjes.
 In de about.blade.php wordt hier ook naar verwezen.
 Daar komen dus ook de complexe class-namen uit voort die ik zelf nooit verzonnen zou hebben.-->
 <div class="main-header__brand">
-      <img src="https://www.graphicsprings.com/filestorage/stencils/68ea7d075a2064907de0c873ea1d81f3.png?width=300&height=300" alt="logo">
+      <img src="https://freesvg.org/img/barretr-Book.png" width="300" alt="logo">
     </div>
     <nav class="main-navigation">
       <ul class="main-navigation__items">

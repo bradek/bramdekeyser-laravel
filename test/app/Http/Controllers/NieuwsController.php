@@ -60,7 +60,8 @@ class NieuwsController extends Controller
      */
     public function show($id)
     {
-        //
+        $nieuwsitem = Nieuws::findOrFail($id);
+        return view('nieuwsdetail', compact('nieuwsitem'));
     }
 
     /**
@@ -83,7 +84,33 @@ class NieuwsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $nieuwsbericht = Nieuws::findOrFail($id);
+
+        $request->validate([
+            'title' => 'required',
+            'category_id' => 'required|exists:categorieen,id',
+            'cover_image' => 'nullable|image|max:2048', // maximaal 2 MB
+            'description' => 'nullable',
+        ]);
+
+        $nieuwsbericht->title = $request->input('title');
+        $nieuwsbericht->category_id = $request->input('category_id');
+        $nieuwsbericht->description = $request->input('description');
+
+        if ($request->hasFile('cover_image')) {
+            // Verwijder de oude cover-afbeelding als die bestaat
+            if ($nieuwsbericht->cover_image) {
+                Storage::delete($nieuwsbericht->cover_image);
+            }
+
+            // Sla de nieuwe cover-afbeelding op en update de cover_image kolom in de database
+            $coverImage = $request->file('cover_image')->store('public/cover_images');
+            $nieuwsbericht->cover_image = $coverImage;
+        }
+
+        $nieuwsbericht->save();
+
+        return redirect()->route('admin.nieuwsbeheer.index')->with('success', 'Nieuwsbericht bijgewerkt.');
     }
 
     /**
@@ -94,7 +121,10 @@ class NieuwsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $nieuwsitem = Nieuws::findOrFail($id);
+        $nieuwsitem->delete();
+
+        return redirect()->route('laatstenieuws')->with('success', 'Nieuwsitem verwijderd.');
     }
 
     

@@ -10,7 +10,7 @@
                 <div class="nieuws-item">
                     <h2>{{ $nieuws->title }}</h2>
                     <p>Categorie: {{ $nieuws->categorie->name }}</p>
-                    <img src="{{ $nieuws->cover_image }}" alt="{{ $nieuws->title }}">
+                    <img src="{{ asset($nieuws->cover_image) }}" alt="{{ $nieuws->title }}">
                     <p>{{ $nieuws->description }}</p>
                     <p>Publicatiedatum: {{ $nieuws->publication_date }}</p>
                 </div>

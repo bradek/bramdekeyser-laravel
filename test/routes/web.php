@@ -139,11 +139,56 @@ Route::post('/avatars', 'RegistratieController@uploadAvatar')->name('upload.avat
 Route::get('/faq', [FAQController::class, 'toonFaq'])->name('faq');
 
 Route::get('/laatstenieuws', [NieuwsController::class, 'index'])->name('laatstenieuws');
+Route::get('/nieuws/{id}', [NieuwsController::class, 'show'])->name('nieuws.show');
+Route::delete('/nieuws/{id}', [NieuwsController::class, 'destroy'])->name('nieuws.destroy');
+
+/*Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('nieuwsbeheer', 'NieuwsbeheerController');
+});*/
+
+Route::get('/nieuws', [NieuwsController::class, 'index'])->name('laatstenieuws');
+Route::get('/nieuws/{id}', [NieuwsController::class, 'show'])->name('nieuwsdetail');
+
+Route::prefix('admin')->group(function () {
+    Route::get('/nieuws', [NieuwsbeheerController::class, 'index'])->name('admin.nieuwsbeheer.index');
+    Route::get('/nieuws/create', [NieuwsbeheerController::class, 'create'])->name('admin.nieuwsbeheer.create');
+    Route::post('/nieuws', [NieuwsbeheerController::class, 'store'])->name('admin.nieuwsbeheer.store');
+    Route::get('/nieuws/{id}/edit', [NieuwsbeheerController::class, 'edit'])->name('admin.nieuwsbeheer.edit');
+    Route::put('/nieuws/{id}', [NieuwsbeheerController::class, 'update'])->name('admin.nieuwsbeheer.update');
+    Route::delete('/nieuws/{id}', [NieuwsbeheerController::class, 'destroy'])->name('admin.nieuwsbeheer.destroy');
+});
 
 Route::prefix('admin')->name('admin.')->group(function () {
-    Route::resource('nieuwsbeheer', 'NieuwsbeheerController');
+    Route::resource('nieuwsbeheer', 'App\Http\Controllers\NieuwsbeheerController');
 });
 
 Route::get('/admin/nieuwsbeheer', [NieuwsbeheerController::class, 'index'])->name('admin.nieuwsbeheer.index');
-Route::get('/admin/nieuwsbeheer/{nieuwsitem}/edit', [NieuwsbeheerController::class, 'edit'])->name('admin.nieuwsbeheer.edit');
-Route::delete('/admin/nieuwsbeheer/{nieuwsitem}', [NieuwsbeheerController::class, 'destroy'])->name('admin.nieuwsbeheer.destroy');
+Route::get('/admin/nieuwsbeheer/create', [NieuwsbeheerController::class, 'create'])->name('admin.nieuwsbeheer.create');
+Route::post('/admin/nieuwsbeheer', [NieuwsbeheerController::class, 'store'])->name('admin.nieuwsbeheer.store');
+Route::get('/admin/nieuwsbeheer/{id}/edit', [NieuwsbeheerController::class, 'edit'])->name('admin.nieuwsbeheer.edit');
+Route::put('/admin/nieuwsbeheer/{id}', [NieuwsbeheerController::class, 'update'])->name('admin.nieuwsbeheer.update');
+Route::delete('/admin/nieuwsbeheer/{id}', [NieuwsbeheerController::class, 'destroy'])->name('admin.nieuwsbeheer.destroy');
+
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    Route::get('faqbeheer', [FAQController::class, 'faqBeheer'])->name('admin.faqbeheer');
+});
+
+// FAQ-beheer routes
+Route::get('admin/faqbeheer/create', [FAQController::class, 'create'])->name('admin.faqbeheer.create');
+Route::post('admin/faqbeheer', [FAQController::class, 'store'])->name('admin.faqbeheer.store');
+Route::get('admin/faqbeheer/{faqVraag}/edit', [FAQController::class, 'edit'])->name('admin.faq.edit');
+Route::put('admin/faqbeheer/{faqVraag}', [FAQController::class, 'update'])->name('admin.faqbeheer.update');
+Route::delete('admin/faqbeheer/{faqVraag}', [FAQController::class, 'destroy'])->name('admin.faqbeheer.destroy');
+
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    Route::get('categoriebeheer', [FAQController::class, 'categorieBeheer'])->name('admin.categoriebeheer');
+});
+
+// FAQ-categorieën routes
+Route::middleware(['auth'])->prefix('admin')->group(function () {
+    Route::get('categoriebeheer/create', [FAQController::class, 'createCategorie'])->name('admin.categoriebeheer.create');
+    Route::post('categoriebeheer', [FAQController::class, 'storeCategorie'])->name('admin.categoriebeheer.store');
+    Route::get('categoriebeheer/{categorie}/edit', [FAQController::class, 'editCategorie'])->name('admin.categoriebeheer.edit');
+    Route::put('categoriebeheer/{categorie}', [FAQController::class, 'updateCategorie'])->name('admin.categoriebeheer.update');
+    Route::delete('categoriebeheer/{categorie}', [FAQController::class, 'destroyCategorie'])->name('admin.categoriebeheer.destroy');
+});

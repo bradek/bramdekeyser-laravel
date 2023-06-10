@@ -114,3 +114,10 @@ body{
   .adminfooter{
     background-color:rgb(64, 134, 117);
   }
+  div.hoofddivider{
+    width: 90%;
+    margin: auto;
+  }
+  .main-navigation__items a{
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+  }

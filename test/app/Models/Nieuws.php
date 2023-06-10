@@ -9,6 +9,7 @@ use App\Models\Nieuws;
 
 class Nieuws extends Model
 {
+    //protected $table = 'categorieen';
     /*De fillable array bevat een titel, category_id, cover_image, description en publication_date.*/
     protected $fillable = ['title', 'category_id', 'cover_image', 'description', 'publication_date'];
 
