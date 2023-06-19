@@ -16,6 +16,7 @@ use App\Http\Controllers\LaatsteNieuwsController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\NieuwsController;
 use App\Http\Controllers\NieuwsbeheerController;
+use App\Http\Controllers\GastenboekController;
 
 use App\Models\Nieuws;
 use App\Models\Categorie;
@@ -192,3 +193,6 @@ Route::middleware(['auth'])->prefix('admin')->group(function () {
     Route::put('categoriebeheer/{categorie}', [FAQController::class, 'updateCategorie'])->name('admin.categoriebeheer.update');
     Route::delete('categoriebeheer/{categorie}', [FAQController::class, 'destroyCategorie'])->name('admin.categoriebeheer.destroy');
 });
+
+Route::get('/gastenboek', [GastenboekController::class, 'index'])->name('gastenboek.index');
+Route::post('/gastenboek', [GastenboekController::class, 'store'])->name('gastenboek.store');

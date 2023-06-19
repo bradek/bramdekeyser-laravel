@@ -34,6 +34,8 @@ Daar komen dus ook de complexe class-namen uit voort die ik zelf nooit verzonnen
           <a href="{{ route('faq') }}">FAQ</a>
           <li class="main-navigation__item">
           <a href="{{ route('laatstenieuws') }}">Laatste Nieuws</a>
+          <li class="main-navigation__item">
+          <a href="{{ route('gastenboek.index') }}">Gastenboek</a>
         </li>
       </ul>
     </nav>
