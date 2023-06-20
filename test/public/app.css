@@ -28,19 +28,19 @@ body{
   .main-navigation{
     display:inline-block;
     vertical-align:middle;
-    margin-left:50px;
+    margin-left: 2px;
   }
   .main-navigation__item{
     display:inline-block;
   }
   .main-navigation__item a{
-    font-size:18px;
+    font-size: 17px;
     font-family:cursive;
     font-weight:500;
     text-decoration:none;
     color:#034;
     cursor:pointer;
-    margin-left:40px;
+    margin-left: 30px;
   }
   .main-navigation__item a:hover{
     color:orangered;
@@ -121,3 +121,60 @@ body{
   .main-navigation__items a{
     font-family:Verdana, Geneva, Tahoma, sans-serif;
   }
+  .boekentabel {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .boekentabel th,
+  .boekentabel td {
+    padding: 8px;
+    border: 3px solid black;
+  }
+  
+  .boekcover {
+    width: 120px;
+    text-align: center;
+  }
+  
+  .coverafbeelding {
+    max-width: 100px;
+    height: auto;
+  }
+  
+  .boektitel {
+    font-weight: bold;
+  }
+  
+  .boekprijs {
+    text-align: left;
+  }
+  
+  .boekbeschrijving {
+    max-width: 300px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .adminsubnav {
+    margin: auto;
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .adminsubnav a {
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+  }
+  
+  .adminsubnav a:hover {
+    background-color: #095db8;
+  }
+  
+  

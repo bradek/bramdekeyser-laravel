@@ -15,11 +15,7 @@ Daar komen dus ook de complexe class-namen uit voort die ik zelf nooit verzonnen
         <li class="main-navigation__item">
           <a href="/about">About</a>
           <li class="main-navigation__item">
-          <a href="/boeken">Boeken</a>
-            <li class="main-navigation__item">
-          <a href="{{ route('showRegistratieFormulier') }}">Registreer</a>
-              <li class="main-navigation__item">
-          <a href="{{ route('login') }}">Login</a>
+          <a href="{{ route('boeken.index') }}">Boeken</a>
           <!--Als de ingelogde gebruiker geen admin is, zal deze link niet worden weergegeve.
         Wanneer de ingelogde gegeven adminrechten heeft, zal de link naar de admin-pagina zichtbaar worden.-->
           @if (auth()->check() && auth()->user()->isAdmin())
@@ -36,6 +32,10 @@ Daar komen dus ook de complexe class-namen uit voort die ik zelf nooit verzonnen
           <a href="{{ route('laatstenieuws') }}">Laatste Nieuws</a>
           <li class="main-navigation__item">
           <a href="{{ route('gastenboek.index') }}">Gastenboek</a>
+          <li class="main-navigation__item">
+          <a href="{{ route('showRegistratieFormulier') }}">Registreer</a>
+              <li class="main-navigation__item">
+          <a href="{{ route('login') }}">Login</a>
         </li>
       </ul>
     </nav>

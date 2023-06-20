@@ -60,7 +60,8 @@ Route::get('/dbconnectie', function(){
     return view('dbconnectie');
 });
 
-Route::get('/boeken', [BoekenController::class, 'index']);
+Route::get('/boeken', [BoekenController::class, 'index'])->name('boeken.index');
+
 
 /*Routes voor het registratieformulier.*/
 /*Eerst heb ik de onderstaande stringnotatie gebruikt, maar deze heb ik later laten varen omdat deze problemen gaf.

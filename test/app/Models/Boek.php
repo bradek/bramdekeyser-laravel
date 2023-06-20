@@ -7,5 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Boek extends Model
 {
-    use HasFactory;
+    protected $table = 'boeken';
+    protected $fillable = ['titel', 'prijs', 'cover_afbeelding', 'beschrijving'];
 }

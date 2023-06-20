@@ -14,9 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('boeken', function (Blueprint $table) {
-            $table->increments('id');
+            $table->id();
             $table->string('titel');
-            $table->mediumText('beschrijving');
+            $table->decimal('prijs', 8, 2);
+            $table->string('cover_afbeelding')->nullable();
+            $table->text('beschrijving');
             $table->timestamps();
         });
     }

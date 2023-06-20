@@ -3,14 +3,16 @@
     @section('content')
   <h1>Profiel</h1>
   <br>
-  <h2>Naam: {{$user->name}}</h2>
-  <h2>Avatar:</h2><br>
-  <img src="{{ $user->avatar }}" alt="{{ $user->name }}">
-  <h2>Email: {{$user->email}}</h2>
-  <h2>Geboortedatum {{$user->birthdate}}</h2>
-  <h2>Over mij:</h2>
-  <p>{{$user->about_me}}</p>
+  <p>Naam: {{$user->name}}</p>
+  <p>Avatar:</p><br>
+  <img src="{{ $user->avatar }}" alt="{{ $user->name }}"><br>
+  
+  <p>Email: <a href="{{ $user->email }}"> {{ $user->email }}</a></p>
+  <p>Geboortedatum {{$user->birthdate}}</p>
+  <p>Over mij:</p>
+  <p><i>{{$user->about_me}}</i></p><br>
 
+  <h2>Gegevens wijzigen</h2>
   <!--De wijzigingen die de gebruiker kan maken zijn van toepassing op de eigen gebruiker.
   Ik maak gebruik van de profielpagina.update route, die gebruik maakt van de ProfielController.
   Via een PUT-verzoek wordt een verzoek naar de update()-methode gestuurd.-->
